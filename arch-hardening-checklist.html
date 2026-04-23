@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arch Linux Out-of-the-Box Security Checklist</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0f14;
+      --panel: #121923;
+      --panel-2: #182230;
+      --text: #e8edf3;
+      --muted: #9fb0c3;
+      --line: #243244;
+      --accent: #7cc7ff;
+      --warn: #ffd166;
+      --good: #8bd3a8;
+      --bad: #ff8c8c;
+      --shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+      --max: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font: 16px/1.65 "IBM Plex Sans", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(124, 199, 255, 0.11), transparent 28rem),
+        radial-gradient(circle at top right, rgba(139, 211, 168, 0.09), transparent 26rem),
+        linear-gradient(180deg, #0a0f15 0%, #0d131c 100%);
+      color: var(--text);
+    }
+
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 48px 20px 72px;
+    }
+
+    .hero,
+    .card {
+      background: linear-gradient(180deg, rgba(24, 34, 48, 0.96), rgba(18, 25, 35, 0.98));
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 28px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(124, 199, 255, 0.12);
+      color: var(--accent);
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.15;
+      margin: 0;
+      font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+    }
+
+    h1 {
+      margin-top: 14px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin-bottom: 14px;
+    }
+
+    p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .card {
+      padding: 22px;
+    }
+
+    .summary {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .summary div {
+      padding: 12px 14px;
+      background: rgba(11, 15, 20, 0.65);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    ol {
+      margin: 0;
+      padding-left: 1.35rem;
+    }
+
+    li + li {
+      margin-top: 18px;
+    }
+
+    .title-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(11, 15, 20, 0.8);
+      color: var(--muted);
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
+    .tag.bad {
+      color: var(--bad);
+      border-color: rgba(255, 140, 140, 0.35);
+      background: rgba(255, 140, 140, 0.08);
+    }
+
+    .tag.warn {
+      color: var(--warn);
+      border-color: rgba(255, 209, 102, 0.35);
+      background: rgba(255, 209, 102, 0.08);
+    }
+
+    .tag.good {
+      color: var(--good);
+      border-color: rgba(139, 211, 168, 0.35);
+      background: rgba(139, 211, 168, 0.08);
+    }
+
+    .item p {
+      margin-top: 8px;
+    }
+
+    .fix {
+      margin-top: 10px;
+      color: var(--text);
+    }
+
+    .fix strong {
+      color: var(--accent);
+    }
+
+    code {
+      font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+      font-size: 0.95em;
+      background: rgba(124, 199, 255, 0.08);
+      border: 1px solid rgba(124, 199, 255, 0.14);
+      border-radius: 8px;
+      padding: 0.1rem 0.4rem;
+    }
+
+    ul {
+      margin: 12px 0 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .footnote {
+      font-size: 0.94rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <span class="eyebrow">Reviewed against Arch docs and package metadata</span>
+      <h1>Arch Linux: out-of-the-box security gaps, cleaned up</h1>
+      <p>
+        This is a corrected version of the original draft. The goal is accuracy, not fear: a basic Arch install is
+        minimal and user-driven, not “full of active vulnerabilities.” The real issue is that Arch leaves many hardening
+        choices to the administrator.
+      </p>
+      <div class="summary">
+        <div><strong>Kept:</strong> firewall, MAC, encryption, Secure Boot, AUR trust risk.</div>
+        <div><strong>Scoped down:</strong> SSH is only a risk if you install and enable it.</div>
+        <div><strong>Removed or revised:</strong> “use SELinux” as a general quick fix is poor advice on Arch; AppArmor is the practical default hardening step.</div>
+        <div><strong>Important counterpoint:</strong> Arch does ship strong package-signing defaults, modern compiler hardening, and disabled systemd presets for most services.</div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-bottom:18px;">
+      <h2>Quick checklist</h2>
+      <ol>
+        <li>No active firewall by default. Fix with <code>nftables</code>, <code>ufw</code>, or <code>firewalld</code>.</li>
+        <li>No mandatory access control by default. Fix with <code>AppArmor</code>.</li>
+        <li>No full-disk encryption by default. Fix with LUKS at install time.</li>
+        <li>No trusted boot chain by default. Fix with Secure Boot, ideally with a signed UKI.</li>
+        <li>AUR and third-party install scripts expand your trust boundary. Fix by preferring official repos and auditing PKGBUILDs.</li>
+        <li>If you add network services later, Arch will not harden them for you. Fix by auditing enabled services and locking down SSH if you install it.</li>
+      </ol>
+    </section>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Validated findings</h2>
+        <ol>
+          <li class="item">
+            <div class="title-row">
+              <h3>No active firewall by default</h3>
+              <span class="tag bad">Real gap</span>
+            </div>
+            <p>
+              A plain Arch system does not come with an active firewall policy. That is not automatically dangerous if
+              nothing is listening, but it becomes a real exposure the moment you enable a network-facing service and
+              forget to restrict it.
+            </p>
+            <p class="fix"><strong>Fix:</strong> enable one firewall early. For simplicity use <code>ufw</code>; for native rules use <code>nftables</code>.</p>
+          </li>
+
+          <li class="item">
+            <div class="title-row">
+              <h3>No mandatory access control by default</h3>
+              <span class="tag bad">Real gap</span>
+              <span class="tag warn">Use AppArmor, not SELinux, for the easy path</span>
+            </div>
+            <p>
+              A basic Arch install relies on standard discretionary permissions unless you add an LSM policy layer.
+              That means less process confinement than distributions that ship AppArmor or SELinux pre-wired.
+            </p>
+            <p>
+              The original draft treated AppArmor and SELinux as equally practical fixes. That is misleading on Arch.
+              AppArmor is supported by official kernels and can be enabled with standard packages and a service. SELinux
+              on Arch is still an unofficial, AUR-heavy path that replaces core packages and requires more care.
+            </p>
+            <p class="fix"><strong>Fix:</strong> use <code>apparmor</code>, enable <code>apparmor.service</code>, and load actual profiles for the software you care about most.</p>
+          </li>
+
+          <li class="item">
+            <div class="title-row">
+              <h3>No full-disk encryption by default</h3>
+              <span class="tag bad">Real gap</span>
+            </div>
+            <p>
+              A stolen laptop, removable SSD, or pulled desktop drive remains readable unless you deliberately set up
+              LUKS during installation or migrate later. This is one of the clearest “default weak posture” items in a
+              normal Arch install.
+            </p>
+            <p class="fix"><strong>Fix:</strong> use LUKS for the root filesystem. If you want convenience later, Arch documents TPM and FIDO2 unlock paths through <code>systemd-cryptenroll</code>.</p>
+          </li>
+
+          <li class="item">
+            <div class="title-row">
+              <h3>No Secure Boot or signed boot chain by default</h3>
+              <span class="tag bad">Real gap</span>
+            </div>
+            <p>
+              Without Secure Boot, the pre-boot chain is easier to tamper with. This matters most for physical-access
+              threats and for systems where you want more assurance that the boot manager, kernel, and initramfs were not modified.
+            </p>
+            <p>
+              This also fixes a weakness in the original draft: “encrypt your disk” is incomplete advice. If your boot
+              chain is not trusted, disk encryption alone does not fully address pre-boot tampering.
+            </p>
+            <p class="fix"><strong>Fix:</strong> set up Secure Boot. The strongest Arch path is a signed unified kernel image rather than signing only the kernel.</p>
+          </li>
+
+          <li class="item">
+            <div class="title-row">
+              <h3>AUR use is a trust risk, not a distro flaw</h3>
+              <span class="tag warn">Common Arch foot-gun</span>
+            </div>
+            <p>
+              The original draft was right that the AUR is a serious real-world risk, but wrong to blur it into a
+              “default install vulnerability.” A fresh Arch system does not require AUR packages. The risk appears when
+              you expand the system with unreviewed PKGBUILDs, unofficial binary repos, or random install scripts.
+            </p>
+            <p class="fix"><strong>Fix:</strong> prefer official repos first, read PKGBUILDs before building, keep pacman signature verification intact, and treat <code>curl | sh</code> as arbitrary code execution.</p>
+          </li>
+
+          <li class="item">
+            <div class="title-row">
+              <h3>Later service exposure is admin-controlled</h3>
+              <span class="tag warn">Important nuance</span>
+            </div>
+            <p>
+              The original draft implied Arch leaves you exposed because services are easy to forget. The correction is:
+              Arch actually ships systemd presets with <code>disable *</code>, so most services are not auto-enabled when installed.
+              That is a point in Arch’s favor.
+            </p>
+            <p>
+              The remaining risk is operational: once you choose to enable services, Arch does not add distro-level
+              guardrails for you. This especially matters for SSH if you install it yourself.
+            </p>
+            <p class="fix"><strong>Fix:</strong> periodically check <code>systemctl list-unit-files --state=enabled</code>, expose only what you need, and if you run SSH use key-only auth and disable password logins.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>What I removed or downgraded from the original draft</h2>
+        <ul>
+          <li><strong>SSH as an out-of-box issue:</strong> not accurate. <code>openssh</code> is not part of the <code>base</code> meta-package, so this matters only if you install and enable it.</li>
+          <li><strong>Desktop app sandboxing as a base-install weakness:</strong> too broad. It becomes relevant only after you build a desktop stack and add apps. It is useful hardening, but not a core base-install vulnerability.</li>
+          <li><strong>“Use AppArmor or SELinux” as equal recommendations:</strong> too symmetrical. On Arch, AppArmor is the practical mainstream choice; SELinux remains officially unsupported and more invasive.</li>
+          <li><strong>“Arch users bypass the trust path” as a default weakness:</strong> true as a common mistake, but not an out-of-box condition. Official repositories already use package signing and trusted keys.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>What Arch already gets right</h2>
+        <ul>
+          <li>Official repositories use pacman package signing with trusted OpenPGP keys.</li>
+          <li>The <code>base</code> meta-package includes <code>archlinux-keyring</code>.</li>
+          <li>Arch package guidelines apply modern compiler and linker hardening such as PIE, FORTIFY, stack protector, NX, and RELRO.</li>
+          <li>Most systemd units are not enabled automatically after package installation.</li>
+        </ul>
+        <p class="footnote">
+          That does not make Arch “secure by default” in the hardening sense. It does mean the original draft needed
+          balancing: the problem is mostly missing hardening choices, not weak package authenticity or auto-exposed services.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Suggested order of operations</h2>
+        <ol>
+          <li>Enable a firewall.</li>
+          <li>Set up AppArmor and load profiles you will actually use.</li>
+          <li>If this is a laptop or portable drive, put root on LUKS.</li>
+          <li>Protect the boot chain with Secure Boot and, if possible, a signed UKI.</li>
+          <li>Stay in official repositories unless you have reviewed the AUR package yourself.</li>
+          <li>If you later install SSH or other daemons, harden and audit them explicitly.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>Sources</h2>
+        <ul>
+          <li><a href="https://archlinux.org/packages/core/any/base/">Arch base package metadata</a></li>
+          <li><a href="https://wiki.archlinux.org/title/Pacman/Package_signing?useskinversion=1">ArchWiki: pacman package signing</a></li>
+          <li><a href="https://wiki.archlinux.org/title/Security_package_guidelines">ArchWiki: security package guidelines</a></li>
+          <li><a href="https://wiki.archlinux.org/title/Uncomplicated_Firewall">ArchWiki: UFW</a></li>
+          <li><a href="https://wiki.archlinux.org/title/nftables?source=post_page---------------------------">ArchWiki: nftables</a></li>
+          <li><a href="https://wiki.archlinux.org.cn/title/AppArmor">ArchWiki mirror: AppArmor</a></li>
+          <li><a href="https://wiki.archlinux.org.cn/title/SELinux">ArchWiki mirror: SELinux</a></li>
+          <li><a href="https://wiki.archlinux.org/title/dm-crypt/Encrypting_an_entire_system?useskinversion=1">ArchWiki: encrypting an entire system</a></li>
+          <li><a href="https://wiki.archlinux.org/title/Dm-crypt%2FSystem_configuration">ArchWiki: dm-crypt system configuration</a></li>
+          <li><a href="https://wiki.archlinux.org/title/Sbctl">ArchWiki: Secure Boot</a></li>
+          <li><a href="https://wiki.archlinux.org/title/Unified_kernel_image?from=20423&from_column=20423">ArchWiki: unified kernel image</a></li>
+          <li><a href="https://wiki.archlinux.org/title/Arch_User_Repository_%28Polski%29">ArchWiki: AUR warning text</a></li>
+          <li><a href="https://wiki.archlinux.org/title/Systemd?redirect=no">ArchWiki: systemd presets</a></li>
+          <li><a href="https://wiki.archlinux.org/title/OpenSSH_%28Polski%29">ArchWiki: OpenSSH hardening guidance</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
