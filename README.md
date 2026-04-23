@@ -6,7 +6,7 @@ Simple repository for hosting some HTML files.
 
 ## Website
 - [ ] Create `index.html`
-- [ ] Create `testinfo.html`
+- [X] Create `testinfo.html`
 - [ ] Add navigation button
 - [ ] Connect custom domain
 
