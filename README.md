@@ -2,5 +2,14 @@
 Simple repository for hosting some HTML files.
 
 
-[]test
-[] test
+# Repo Tasks
+
+## Website
+- [ ] Create `index.html`
+- [ ] Create `testinfo.html`
+- [ ] Add navigation button
+- [ ] Connect custom domain
+
+## Cleanup
+- [ ] Remove unused files
+- [ ] Update README
