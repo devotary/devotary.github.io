@@ -247,7 +247,7 @@
           '<span class="pill">' + clepTasks + ' checklist items</span>' +
           '<span class="pill">Official NMSU-backed priorities</span>' +
         '</div>' +
-        '<div class="hero-actions"><a class="button" href="/study/clep.html">Open CLEP Tracker</a></div>' +
+        '<div class="hero-actions"><a class="button" href="clep.html">Open CLEP Tracker</a></div>' +
       '</article>' +
       '<article class="summary-card">' +
         '<span class="eyebrow">SIFT Track</span>' +
@@ -258,7 +258,7 @@
           '<span class="pill">' + siftTasks + ' checklist items</span>' +
           '<span class="pill">FAA helicopter handbook core</span>' +
         '</div>' +
-        '<div class="hero-actions"><a class="button" href="/study/sift.html">Open SIFT Tracker</a></div>' +
+        '<div class="hero-actions"><a class="button" href="sift.html">Open SIFT Tracker</a></div>' +
       '</article>';
   }
 
