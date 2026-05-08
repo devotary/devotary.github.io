@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SIFT Tracker | devotary.xyz</title>
+  <link rel="stylesheet" href="/study/styles.css">
+</head>
+<body data-page="sift">
+  <div class="page-lock" data-lock data-visible="true">
+    <section class="lock-card">
+      <span class="eyebrow">Password Gate</span>
+      <h2>SIFT Tracker</h2>
+      <p>Fun lock only. Current password is <strong>123</strong>.</p>
+      <form class="lock-form">
+        <input type="password" placeholder="Enter password" aria-label="Password">
+        <button class="button" type="submit">Unlock</button>
+        <div class="error" data-lock-error></div>
+      </form>
+    </section>
+  </div>
+
+  <main class="page">
+    <div class="shell">
+      <header class="topbar">
+        <a class="brand" href="/study/index.html">
+          <span class="brand-mark">S</span>
+          <span class="brand-copy">
+            <strong>SIFT Tracker</strong>
+            <span>FAA-first prep plan</span>
+          </span>
+        </a>
+        <nav class="nav">
+          <a class="nav-link" href="/index.html">Home</a>
+          <a class="nav-link" href="/study/index.html">Hub</a>
+          <a class="nav-link" href="/study/clep.html">CLEP</a>
+          <button class="ghost-button" type="button" data-logout>Lock</button>
+        </nav>
+      </header>
+
+      <section class="page-heading">
+        <span class="eyebrow">4-week system</span>
+        <h1>SIFT prep focused on aviation fundamentals, math, and mechanical comprehension.</h1>
+        <p>
+          The FAA handbook is the primary aviation source. The Reddit guides and commercial books are useful, but they
+          sit under the FAA material rather than replacing it.
+        </p>
+      </section>
+
+      <section class="grid grid-2">
+        <article class="panel">
+          <div class="pill-row">
+            <span class="chip good"><span data-progress-done>0</span> complete</span>
+            <span class="chip"><span data-progress-total>0</span> total tasks</span>
+            <span class="chip warm"><span data-progress-percent>0%</span> overall progress</span>
+          </div>
+          <div class="progress-line section">
+            <span data-progress-bar></span>
+          </div>
+          <div class="section">
+            <span class="small-title">Core sources</span>
+            <ul class="resource-list" data-sift-resources></ul>
+          </div>
+        </article>
+
+        <article class="panel">
+          <span class="small-title">Priority notes</span>
+          <ul class="note-list" data-sift-notes></ul>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="grid" data-sift-list></div>
+      </section>
+
+      <p class="footer">
+        Official references:
+        <a href="https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/helicopter_flying_handbook" target="_blank" rel="noreferrer">FAA Helicopter Flying Handbook</a>
+        and
+        <a href="https://recruiting.army.mil/ISO/AWOR/Civilian_WOFT/" target="_blank" rel="noreferrer">Army WOFT reference page</a>.
+      </p>
+    </div>
+  </main>
+
+  <script src="/study/data.js"></script>
+  <script src="/study/app.js"></script>
+</body>
+</html>

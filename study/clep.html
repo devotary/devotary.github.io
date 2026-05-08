@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CLEP Tracker | devotary.xyz</title>
+  <link rel="stylesheet" href="/study/styles.css">
+</head>
+<body data-page="clep">
+  <div class="page-lock" data-lock data-visible="true">
+    <section class="lock-card">
+      <span class="eyebrow">Password Gate</span>
+      <h2>CLEP Tracker</h2>
+      <p>Fun lock only. Current password is <strong>123</strong>.</p>
+      <form class="lock-form">
+        <input type="password" placeholder="Enter password" aria-label="Password">
+        <button class="button" type="submit">Unlock</button>
+        <div class="error" data-lock-error></div>
+      </form>
+    </section>
+  </div>
+
+  <main class="page">
+    <div class="shell">
+      <header class="topbar">
+        <a class="brand" href="/study/index.html">
+          <span class="brand-mark">C</span>
+          <span class="brand-copy">
+            <strong>CLEP Tracker</strong>
+            <span>NMSU Grants A.S.</span>
+          </span>
+        </a>
+        <nav class="nav">
+          <a class="nav-link" href="/index.html">Home</a>
+          <a class="nav-link" href="/study/index.html">Hub</a>
+          <a class="nav-link" href="/study/sift.html">SIFT</a>
+          <button class="ghost-button" type="button" data-logout>Lock</button>
+        </nav>
+      </header>
+
+      <section class="page-heading">
+        <span class="eyebrow">Degree-first order</span>
+        <h1>CLEPs that plausibly help an NMSU Grants Associate of Science.</h1>
+        <p>
+          This is not a max-credit dump. It is ordered around current NMSU acceptance and degree usefulness for the
+          general A.S. path. Progress saves locally in this browser.
+        </p>
+      </section>
+
+      <section class="panel">
+        <div class="pill-row">
+          <span class="chip good"><span data-progress-done>0</span> complete</span>
+          <span class="chip"><span data-progress-total>0</span> total tasks</span>
+          <span class="chip warm"><span data-progress-percent>0%</span> overall progress</span>
+        </div>
+        <div class="progress-line section">
+          <span data-progress-bar></span>
+        </div>
+        <div class="stat-row">
+          <div class="stat">
+            <strong>15 credits</strong>
+            <span>Still must be completed within the NMSU system.</span>
+          </div>
+          <div class="stat">
+            <strong>Last 30 credits</strong>
+            <span>CLEP is generally restricted there unless waived by the dean.</span>
+          </div>
+          <div class="stat">
+            <strong>Score target</strong>
+            <span>Most accepted CLEPs on the NMSU table use a minimum score of 50.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="grid" data-clep-list></div>
+      </section>
+
+      <p class="footer">
+        Official references:
+        <a href="https://records.nmsu.edu/students/transfer-credit-details/clep-credit.html" target="_blank" rel="noreferrer">CLEP equivalencies</a>,
+        <a href="https://catalogs.nmsu.edu/grants/degree-certificate-programs/as/" target="_blank" rel="noreferrer">A.S. catalog</a>,
+        <a href="https://catalogs.nmsu.edu/grants/graduation-requirements/" target="_blank" rel="noreferrer">graduation requirements</a>.
+      </p>
+    </div>
+  </main>
+
+  <script src="/study/data.js"></script>
+  <script src="/study/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Hub | devotary.xyz</title>
+  <link rel="stylesheet" href="/study/styles.css">
+</head>
+<body data-page="hub">
+  <div class="page-lock" data-lock data-visible="true">
+    <section class="lock-card">
+      <span class="eyebrow">Password Gate</span>
+      <h2>Study Hub</h2>
+      <p>Fun lock only. Password is whatever you hard-coded. Current build uses <strong>123</strong>.</p>
+      <form class="lock-form">
+        <input type="password" placeholder="Enter password" aria-label="Password">
+        <button class="button" type="submit">Unlock</button>
+        <div class="error" data-lock-error></div>
+      </form>
+    </section>
+  </div>
+
+  <main class="page">
+    <div class="shell">
+      <header class="topbar">
+        <a class="brand" href="/index.html">
+          <span class="brand-mark">D</span>
+          <span class="brand-copy">
+            <strong>devotary.xyz</strong>
+            <span>Study hub</span>
+          </span>
+        </a>
+        <nav class="nav">
+          <a class="nav-link" href="/study/clep.html">CLEP</a>
+          <a class="nav-link" href="/study/sift.html">SIFT</a>
+          <button class="ghost-button" type="button" data-logout>Lock</button>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <span class="eyebrow">Verified Plan</span>
+        <h1>Two practical tracks. One local study system.</h1>
+        <p>
+          This hub narrows your source dump into two useful tracks: CLEPs that actually fit a current NMSU Grants
+          Associate of Science path, and a SIFT plan built around FAA helicopter material plus targeted math and
+          mechanical review.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="/study/clep.html">Start CLEP Track</a>
+          <a class="ghost-button" href="/study/sift.html">Open SIFT Track</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Tracks</h2>
+        <div class="grid grid-2" data-hub-summary></div>
+      </section>
+
+      <section class="section grid grid-2">
+        <article class="info-card">
+          <span class="eyebrow">What Changed</span>
+          <h2>Refined from the pasted list</h2>
+          <p>High-credit exams were not automatically treated as best. The CLEP order now favors actual A.S. fit and NMSU equivalencies.</p>
+          <ul class="note-list">
+            <li>College Composition helps, but does not replace the second communication course.</li>
+            <li>College Algebra is the best overlap exam because it helps both the degree and the SIFT.</li>
+            <li>Chemistry is a stronger degree play than many easier elective-only exams.</li>
+          </ul>
+        </article>
+
+        <article class="info-card">
+          <span class="eyebrow">Sources</span>
+          <h2>Official anchors</h2>
+          <ul class="resource-list">
+            <li><a href="https://records.nmsu.edu/students/transfer-credit-details/clep-credit.html" target="_blank" rel="noreferrer">NMSU CLEP equivalency table</a></li>
+            <li><a href="https://catalogs.nmsu.edu/grants/degree-certificate-programs/as/" target="_blank" rel="noreferrer">NMSU Grants Associate of Science catalog</a></li>
+            <li><a href="https://catalogs.nmsu.edu/grants/graduation-requirements/" target="_blank" rel="noreferrer">NMSU Grants graduation requirements</a></li>
+            <li><a href="https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/helicopter_flying_handbook" target="_blank" rel="noreferrer">FAA Helicopter Flying Handbook</a></li>
+          </ul>
+        </article>
+      </section>
+
+      <p class="footer">
+        Local storage keeps the lock state and checklist progress in your browser. This is intentionally lightweight for GitHub Pages.
+      </p>
+    </div>
+  </main>
+
+  <script src="/study/data.js"></script>
+  <script src="/study/app.js"></script>
+</body>
+</html>
