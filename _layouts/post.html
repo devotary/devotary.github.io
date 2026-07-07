@@ -15,6 +15,12 @@ layout: default
   </figure>
   {% endif %}
 
+  {% if page.source_image %}
+  <p class="source-link">
+    <a href="{{ page.source_image | relative_url }}">View source newsletter image</a>
+  </p>
+  {% endif %}
+
   <article class="issue-body">
     {{ content }}
 

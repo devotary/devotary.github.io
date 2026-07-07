@@ -337,6 +337,16 @@ a {
   margin: 1.5rem 0;
 }
 
+.source-link {
+  margin: 0 0 1rem;
+  font-family: var(--ui-font);
+  font-size: 0.92rem;
+}
+
+.source-link a {
+  color: var(--accent-strong);
+}
+
 .issue-body {
   padding: 1.65rem;
 }
