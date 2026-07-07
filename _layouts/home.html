@@ -6,9 +6,9 @@ layout: default
     <div class="brand-block">
       <img class="brand-mark" src="{{ '/assets/redux-logo.webp' | relative_url }}" alt="Asylum Redux logo">
       <div class="brand-copy">
-        <div class="eyebrow">Semi in-character server newsletter</div>
-        <h1 class="brand-title">Field notes, contractor gossip, and district briefs.</h1>
-        <p class="brand-dek">A lightweight bulletin for the latest developments across the island. The homepage and archive update from the post files automatically.</p>
+        <div class="eyebrow">News you can trust!</div>
+        <h1 class="brand-title">Asylum Weekly</h1>
+        <p class="brand-dek">100% factual and unbiased news regarding the hottest remake of Asylum, all of our sources are fact checked by real patriots who want real news.</p>
       </div>
     </div>
     <nav class="site-nav" aria-label="Primary">
@@ -24,14 +24,13 @@ layout: default
   <section class="hero">
     <div class="hero-grid">
       <article class="hero-copy">
-        <div class="section-label">Latest Dispatch</div>
+        <div class="section-label">Latest Issue</div>
         <h2 class="hero-title">{{ latest.title }}</h2>
         <p class="hero-dek">{{ latest.summary }}</p>
         <div class="hero-actions">
           <a class="button button--solid" href="{{ latest.url | relative_url }}">Read Latest Issue</a>
           <a class="button button--ghost" href="{{ '/archive/' | relative_url }}">Browse Archive</a>
         </div>
-        <p class="hero-note">Each issue lives in `_posts/`. Jekyll rebuilds the homepage and archive lists for you on GitHub Pages.</p>
       </article>
 
       <article class="feature-card">
