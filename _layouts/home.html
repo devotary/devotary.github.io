@@ -1,0 +1,67 @@
+---
+layout: default
+---
+<header class="site-head">
+  <div class="site-head__inner">
+    <div class="brand-block">
+      <img class="brand-mark" src="{{ '/assets/redux-logo.webp' | relative_url }}" alt="Asylum Redux logo">
+      <div class="brand-copy">
+        <div class="eyebrow">Semi in-character server newsletter</div>
+        <h1 class="brand-title">Field notes, contractor gossip, and district briefs.</h1>
+        <p class="brand-dek">A lightweight bulletin for the latest developments across the island. The homepage and archive update from the post files automatically.</p>
+      </div>
+    </div>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/archive/' | relative_url }}">All Newsletters</a>
+    </nav>
+  </div>
+</header>
+
+<main class="site-shell">
+  {% assign latest = site.posts.first %}
+  {% if latest %}
+  <section class="hero">
+    <div class="hero-grid">
+      <article class="hero-copy">
+        <div class="section-label">Latest Dispatch</div>
+        <h2 class="hero-title">{{ latest.title }}</h2>
+        <p class="hero-dek">{{ latest.summary }}</p>
+        <div class="hero-actions">
+          <a class="button button--solid" href="{{ latest.url | relative_url }}">Read Latest Issue</a>
+          <a class="button button--ghost" href="{{ '/archive/' | relative_url }}">Browse Archive</a>
+        </div>
+        <p class="hero-note">Each issue lives in `_posts/`. Jekyll rebuilds the homepage and archive lists for you on GitHub Pages.</p>
+      </article>
+
+      <article class="feature-card">
+        <img src="{{ latest.image | relative_url }}" alt="{{ latest.image_alt }}">
+        <div class="card-meta">{{ latest.date | date: "%d %B %Y" }} • Issue {{ latest.issue }}</div>
+        <h3 class="feature-card__title"><a class="issue-link" href="{{ latest.url | relative_url }}">{{ latest.title }}</a></h3>
+        <p>{{ latest.deck }}</p>
+      </article>
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="section">
+    <div class="section-heading">
+      <div>
+        <div class="section-label">Recent Issues</div>
+        <h2 class="section-title">Latest newsletters</h2>
+      </div>
+      <a class="archive-link" href="{{ '/archive/' | relative_url }}">View every issue</a>
+    </div>
+
+    <div class="issue-grid">
+      {% for post in site.posts offset:1 limit:3 %}
+      <article class="issue-card">
+        <img src="{{ post.image | relative_url }}" alt="{{ post.image_alt }}">
+        <div class="card-meta">{{ post.date | date: "%d %B %Y" }} • Issue {{ post.issue }}</div>
+        <h3 class="issue-card__title"><a class="issue-link" href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.summary }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+</main>

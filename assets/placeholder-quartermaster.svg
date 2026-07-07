@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Quartermaster placeholder</title>
+  <desc id="desc">A stylized crate inventory scene with marked rows of supplies.</desc>
+  <rect width="1200" height="700" fill="#efe6d5"/>
+  <rect x="70" y="110" width="1060" height="470" fill="#f8f3ea" stroke="#c5b9a3" stroke-width="6"/>
+  <g fill="#b28c55" stroke="#8d6a3d" stroke-width="4">
+    <rect x="130" y="180" width="220" height="120"/>
+    <rect x="390" y="180" width="220" height="120"/>
+    <rect x="650" y="180" width="220" height="120"/>
+    <rect x="910" y="180" width="160" height="120"/>
+    <rect x="130" y="350" width="300" height="160"/>
+    <rect x="470" y="350" width="220" height="160"/>
+    <rect x="730" y="350" width="340" height="160"/>
+  </g>
+  <g stroke="#f8f3ea" stroke-width="5">
+    <line x1="130" y1="240" x2="350" y2="240"/>
+    <line x1="390" y1="240" x2="610" y2="240"/>
+    <line x1="650" y1="240" x2="870" y2="240"/>
+    <line x1="910" y1="240" x2="1070" y2="240"/>
+  </g>
+  <text x="130" y="95" font-size="40" font-family="Georgia, serif" fill="#2f2d29">Quartermaster Notes</text>
+  <text x="130" y="620" font-size="22" font-family="Arial, sans-serif" fill="#4f4b43">Supply floor visual • placeholder art</text>
+</svg>

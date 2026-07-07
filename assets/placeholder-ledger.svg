@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Contract ledger placeholder</title>
+  <desc id="desc">A stylized ledger page with highlighted rows.</desc>
+  <rect width="1200" height="700" fill="#f5efe3"/>
+  <rect x="100" y="70" width="1000" height="560" fill="#fffaf1" stroke="#c5b9a3" stroke-width="6"/>
+  <rect x="100" y="70" width="1000" height="90" fill="#dad4c7"/>
+  <g stroke="#c5b9a3" stroke-width="3">
+    <line x1="160" y1="200" x2="1040" y2="200"/>
+    <line x1="160" y1="260" x2="1040" y2="260"/>
+    <line x1="160" y1="320" x2="1040" y2="320"/>
+    <line x1="160" y1="380" x2="1040" y2="380"/>
+    <line x1="160" y1="440" x2="1040" y2="440"/>
+    <line x1="160" y1="500" x2="1040" y2="500"/>
+  </g>
+  <rect x="160" y="228" width="720" height="26" fill="#dbe3cf"/>
+  <rect x="160" y="348" width="640" height="26" fill="#e9dec8"/>
+  <rect x="160" y="468" width="780" height="26" fill="#dbe3cf"/>
+  <text x="155" y="130" font-size="44" font-family="Georgia, serif" fill="#2f2d29">Contractor Ledger</text>
+  <text x="156" y="170" font-size="20" font-family="Arial, sans-serif" fill="#4f4b43">Finance office extract • placeholder table art</text>
+</svg>

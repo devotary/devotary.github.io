@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<main class="newsletter-shell">
+  <header class="issue-header">
+    <a class="home-link" href="{{ '/' | relative_url }}">Home</a>
+    <div class="issue-meta">{{ page.date | date: "%d %B %Y" }} • Issue {{ page.issue }}</div>
+    <h1 class="issue-title">{{ page.title }}</h1>
+    <p class="issue-dek">{{ page.deck }}</p>
+  </header>
+
+  {% if page.image %}
+  <figure class="issue-hero">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt }}">
+  </figure>
+  {% endif %}
+
+  <article class="issue-body">
+    {{ content }}
+
+    <div class="pager">
+      <a href="{{ '/archive/' | relative_url }}">Archive</a>
+      {% if page.previous %}
+      <a href="{{ page.previous.url | relative_url }}">Earlier issue</a>
+      {% endif %}
+    </div>
+  </article>
+</main>

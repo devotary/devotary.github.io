@@ -1,0 +1,38 @@
+---
+layout: default
+title: Archive
+permalink: /archive/
+description: Archive of the Asylum Redux Dispatch newsletters.
+---
+<header class="site-head">
+  <div class="site-head__inner">
+    <div class="brand-block">
+      <img class="brand-mark" src="{{ '/assets/redux-logo.webp' | relative_url }}" alt="Asylum Redux logo">
+      <div class="brand-copy">
+        <div class="eyebrow">Full archive</div>
+        <h1 class="archive-title">Every published dispatch in one place.</h1>
+        <p class="archive-summary">This page is generated from the posts in `_posts/`. Add one new post file and the listing updates automatically.</p>
+      </div>
+    </div>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/archive/' | relative_url }}">All Newsletters</a>
+    </nav>
+  </div>
+</header>
+
+<main class="site-shell section">
+  <div class="archive-list">
+    {% for post in site.posts %}
+    <article class="archive-item">
+      <div class="archive-item__row">
+        <div class="archive-date">{{ post.date | date: "%d %B %Y" }}<br>Issue {{ post.issue }}</div>
+        <div>
+          <h2 class="issue-card__title"><a class="issue-link" href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+          <p>{{ post.summary }}</p>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</main>

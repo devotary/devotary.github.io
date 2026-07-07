@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Harbor district placeholder</title>
+  <desc id="desc">A stylized shoreline map with docks and utility blocks.</desc>
+  <rect width="1200" height="700" fill="#eee5d4"/>
+  <rect x="0" y="0" width="410" height="700" fill="#d7dcca"/>
+  <rect x="410" y="0" width="790" height="700" fill="#9eb0ba"/>
+  <rect x="460" y="80" width="550" height="70" fill="#f5efe3"/>
+  <rect x="460" y="200" width="490" height="55" fill="#e8ddc9"/>
+  <rect x="460" y="310" width="410" height="55" fill="#f5efe3"/>
+  <rect x="520" y="450" width="390" height="140" fill="#d1c3a7"/>
+  <path d="M410 0 L360 700" stroke="#44505a" stroke-width="12"/>
+  <path d="M600 0 L560 700" stroke="#bfc9ce" stroke-width="8" stroke-dasharray="18 18"/>
+  <path d="M790 0 L750 700" stroke="#bfc9ce" stroke-width="8" stroke-dasharray="18 18"/>
+  <text x="70" y="110" font-size="42" font-family="Georgia, serif" fill="#2d352c">Harbor District</text>
+  <text x="70" y="160" font-size="20" font-family="Arial, sans-serif" fill="#4f4b43">Patrol sketch • placeholder field graphic</text>
+  <circle cx="790" cy="520" r="22" fill="#5f6a4d"/>
+  <circle cx="845" cy="520" r="22" fill="#5f6a4d"/>
+  <circle cx="900" cy="520" r="22" fill="#5f6a4d"/>
+</svg>

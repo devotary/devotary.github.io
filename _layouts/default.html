@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} • {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+</head>
+<body>
+  <div class="site-topbar">
+    <div class="site-topbar__inner">
+      <span>{{ site.title }}</span>
+      <div class="site-topbar__links">
+        <a href="{{ '/archive/' | relative_url }}">Archive</a>
+        {% if site.posts.first %}
+        <a href="{{ site.posts.first.url | relative_url }}">Latest Issue</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  {{ content }}
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>{{ site.title }}</span>
+      <span>GitHub Pages Jekyll archive</span>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Interior board placeholder</title>
+  <desc id="desc">A stylized operations board with pinned notes and site lines.</desc>
+  <rect width="1200" height="700" fill="#d8cfbf"/>
+  <rect x="90" y="70" width="1020" height="560" rx="14" fill="#6d7a59"/>
+  <rect x="155" y="135" width="250" height="180" fill="#f8f1e2"/>
+  <rect x="445" y="135" width="250" height="180" fill="#efe6d5"/>
+  <rect x="735" y="135" width="220" height="180" fill="#f8f1e2"/>
+  <rect x="215" y="370" width="320" height="175" fill="#efe6d5"/>
+  <rect x="585" y="370" width="300" height="175" fill="#f8f1e2"/>
+  <g stroke="#d9d4c8" stroke-width="6">
+    <line x1="405" y1="215" x2="445" y2="215"/>
+    <line x1="695" y1="215" x2="735" y2="215"/>
+    <line x1="375" y1="405" x2="735" y2="225"/>
+    <line x1="535" y1="465" x2="585" y2="465"/>
+  </g>
+  <g fill="#b54f35">
+    <circle cx="210" cy="150" r="10"/>
+    <circle cx="500" cy="150" r="10"/>
+    <circle cx="785" cy="150" r="10"/>
+    <circle cx="270" cy="385" r="10"/>
+    <circle cx="655" cy="385" r="10"/>
+  </g>
+  <text x="153" y="610" font-size="42" font-family="Georgia, serif" fill="#f8f1e2">Interior Bulletin</text>
+</svg>
