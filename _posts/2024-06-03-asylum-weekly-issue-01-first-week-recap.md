@@ -73,4 +73,4 @@ Popular Asylum member, Domination fighter, APD Lieutenant, and former Administra
 > Junker — 24/12/2025, 16:34  
 > merry christmas [racial slur redacted]
 
-Truly a sad day for the now homeless Crimson cartel fighters, especially considering most of them are washed roleplayers now.
+Truly a sad day for the now homeless Crimson cartel fighters, especially considering most of them are washed roleplayers now. However, there is a silver lining to this dark cloud. Asylum Weekly sources report that .Nathan has re-booted the Crimson gang alongside .Shy and is welcoming all former players to try to hit their shots again with the ol' group!
